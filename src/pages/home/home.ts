@@ -12,6 +12,17 @@ export class HomePage {
   constructor(public navCtrl: NavController, public http:HttpClient) {
     this.navCtrl.push('AddNewPage');
   }
+  public ionViewWillEnter()
+  {
+    let url="http://localhost/app/index.php/api/fishingvessel/all_ship";
+  this.http.get(url)
+           .subscribe(
+             (result:any) => {
+               console.log(result);
+               this.vessels = result;
+             }
+           );
+  }
 public loadData(vesselName){
  // this.vessels.push(vesselName);
   //this.vesselName = "";
