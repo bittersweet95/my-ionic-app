@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Subscriber } from 'rxjs/Subscriber';
 
 /**
  * Generated class for the AddNewPage page.
@@ -34,7 +35,27 @@ export class AddNewPage {
                   );
   }
   public add(vesselName,countryID){
+    let data ={
+      Name: vesselName,
+      Country_ID:countryID
+    };
+    console.log('ข่อมูลที่จะส่งไปให้เว็บ api')
+    console.log(data);
 
+    let url = "http://localhost/app/index.php/api/fishingvessel/create";
+    this.HttpClient.post(url,data)
+        .subscribe(
+          (result:any)=>{
+            console.log(result);
+
+            if(result.result_info == true){
+              this.navCtrl.pop();
+            }
+            else{
+              alert('ไม่สามารถเพิ่มข้อมูลได้ ลองใหม่อีกครั้ง');
+            }
+          }
+        );
   }
   public cancel(){
     this.navCtrl.pop();
