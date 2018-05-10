@@ -15,6 +15,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'add-new.html',
 })
 export class AddNewPage {
+  countryArray = [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public HttpClient: HttpClient) {
 
@@ -27,6 +28,7 @@ export class AddNewPage {
                   .subscribe(
                     (result:any)=>{
                       console.log(result);
+                      this.countryArray = result;
                     }
 
                   );
