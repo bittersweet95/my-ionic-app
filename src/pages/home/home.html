@@ -15,7 +15,9 @@
   <ion-list>
     <!-- foreach($vessels to $ship-->
     <ion-item *ngFor="let ship of vessels">
-     {{ship}}
+     <h2>{{ship.Name}}</h2>
+     <p>{{ship.Country_ID}}</p>
+     <img width = "400" src="http://localhost/app/{{ship.imagePath}}" alt="">
     </ion-item>
   </ion-list>
 </ion-content>
