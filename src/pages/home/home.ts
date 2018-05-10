@@ -10,7 +10,7 @@ export class HomePage {
   vessels=[];
   vesselName;
   constructor(public navCtrl: NavController, public http:HttpClient) {
-    
+    this.navCtrl.push('AddNewPage');
   }
 public loadData(vesselName){
  // this.vessels.push(vesselName);
@@ -23,5 +23,9 @@ public loadData(vesselName){
                this.vessels = result;
              }
            );
+}
+public openNewVesselPage()
+{
+
 }
 }
