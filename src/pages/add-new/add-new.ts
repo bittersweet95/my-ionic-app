@@ -21,5 +21,10 @@ export class AddNewPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddNewPage');
   }
+  public add(vesselName,countryID){
 
+  }
+  public cancel(){
+
+  }
 }
