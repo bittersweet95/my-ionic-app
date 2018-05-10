@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
@@ -15,11 +16,20 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class AddNewPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public HttpClient: HttpClient) {
+
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddNewPage');
+    let url="http://localhost/app/index.php/api/country/all";
+    this.HttpClient.get(url)
+                  .subscribe(
+                    (result:any)=>{
+                      console.log(result);
+                    }
+
+                  );
   }
   public add(vesselName,countryID){
 
