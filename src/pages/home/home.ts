@@ -26,6 +26,6 @@ public loadData(vesselName){
 }
 public openNewVesselPage()
 {
-
+this.navCtrl.push('AddNewPage');
 }
 }
